@@ -9,19 +9,35 @@ const Stack = createNativeStackNavigator<InicioStackParamList>();
 
 export default function InicioStack() {
   return (
-    <Stack.Navigator initialRouteName="Pokemon">
+    <Stack.Navigator
+      initialRouteName="Pokemon"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#6D28D9',
+        },
+        headerTintColor: '#FFFFFF',
+        headerTitleStyle: {
+          fontWeight: '700',
+        },
+      }}
+    >
       <Stack.Screen
         name="Pokemon"
         component={PokemonScreen}
         options={{
-          title: 'Pokédex',
-          headerLeft: () => <DrawerToggleButton tintColor="#1454BD" />,
+          title: 'Minha Pokédex',
+          headerLeft: () => (
+            <DrawerToggleButton tintColor="#FFFFFF" />
+          ),
         }}
       />
+
       <Stack.Screen
         name="Detalhes"
         component={DetalhesScreen}
-        options={{ title: 'Detalhes do Pokémon' }}
+        options={{
+          title: 'Detalhes',
+        }}
       />
     </Stack.Navigator>
   );

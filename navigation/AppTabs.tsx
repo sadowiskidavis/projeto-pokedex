@@ -10,15 +10,31 @@ const Tab = createBottomTabNavigator<AppTabParamList>();
 
 export default function AppTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: '#7C3AED',
+        tabBarInactiveTintColor: '#8E8E9A',
+        tabBarStyle: {
+          height: 62,
+          paddingTop: 6,
+          paddingBottom: 8,
+          backgroundColor: '#FFFFFF',
+          borderTopColor: '#E9D5FF',
+        },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: '600',
+        },
+      }}
+    >
       <Tab.Screen
         name="Inicio"
         component={InicioStack}
         options={{
-          title: 'Início',
-          headerShown: false,
+          title: 'Pokédex',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" color={color} size={size} />
+            <Ionicons name="grid-outline" color={color} size={size} />
           ),
         }}
       />
@@ -38,7 +54,7 @@ export default function AppTabs() {
         name="Configuracoes"
         component={ConfiguracoesScreen}
         options={{
-          title: 'Configurações',
+          title: 'Ajustes',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="settings-outline" color={color} size={size} />
           ),
